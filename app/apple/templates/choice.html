@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+    {% for item in device_list %}
+        <select class="browser-default custom-select custom-select-lg mb-3">
+            <option selected>Select iphone</option>
+            <option value="1">{{ item.name }}</option>
+
+        </select>
+
+        <select class="custom-select custom-select-sm">
+            <option selected>Select iphone</option>
+            <option value="1">{{ item.name }}</option>
+
+        </select>
+    {% endfor %}
+{% endblock %}
