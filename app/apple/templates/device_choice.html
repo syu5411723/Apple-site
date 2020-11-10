@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <div class="bg-#fafafa grey lighten-5">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <form class="" method="get" action="{% url 'device_table' %}">
+                        <div class="col-md-8">
+
+                            <select class="browser-default custom-select custom-select-lg mb-3">
+                                <option selected>Select iPhone</option>
+                                {% for device in object_list %}
+                                    <option value="1">{{ device.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="col-md-8">
+                            <select class="browser-default custom-select custom-select-lg mb-3">
+                                <option selected>Select iPhone</option>
+                                {% for device in object_list %}
+                                    <option value="1">{{ device.name }}</option>
+                                {% endfor %}
+                            </select>
+
+                            <br><br>
+
+
+                            <div class="text-right">
+                                <button type="submit" class="btn btn-dark" name="query">比較する</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    {% block table %}
+
+    {% endblock table %}
+    </div>
+
+
+
+
+{% endblock content %}
