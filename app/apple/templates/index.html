@@ -3,24 +3,30 @@
 
 {% block content %}
     <!-- Jumbotron -->
-<div class="jumbotron text-center bg-#eeeeee grey lighten-3">
+    <div class="bg-#fafafa grey lighten-5">
+        <div class="container">
 
-  <!-- Title -->
-  <h4 class="card-title h4 pb-2"><strong>Iphone Quality Report</strong></h4>
+            <div class="jumbotron text-center  lighten-3">
 
-  <!-- Card image -->
-  <div class="view overlay my-4">
-    <img src="{% static 'media/E536146D-3258-49E5-BEC7-46265CF1F4EB_1_105_c.jpeg' %}" class="img-fluid" alt="">
-    <a href="#">
-      <div class="mask rgba-white-slight"></div>
-    </a>
-  </div>
+                <!-- Title -->
+                <h4 class="card-title h4 pb-2"><strong>iPhone Quality Report</strong></h4>
 
-    <a href="/">
-  <h5 class="indigo-text h5 mb-4">比較する</h5>
-    </a>
+                <!-- Card image -->
+                <div class="view overlay my-4">
+                    <img src="{% static 'media/E536146D-3258-49E5-BEC7-46265CF1F4EB_1_105_c.jpeg' %}" class="img-fluid"
+                         alt="">
+                    <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
 
-  <p class="card-text">ここではapple製品の値段・性能の比較ができます</p>
-</div>
+                <a href="{% url 'choice' %}">
+                    <h5 class="indigo-text h5 mb-4">比較する</h5>
+                </a>
+
+                <p class="card-text">ここではapple製品の値段・性能の比較ができます</p>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
