@@ -39,7 +39,7 @@ class Out_Camera(models.Model):
 class DeviceModel(models.Model):
     name = models.CharField(max_length=50)
     display_size = models.DecimalField(decimal_places=1, max_digits=2)
-    device_size = models.DecimalField(decimal_places=1, max_digits=2)
+    gram = models.CharField(max_length=10, default=True)
     capacity = models.ManyToManyField('Capacity')
     home_button = models.CharField(max_length=3)
     cpu = models.ForeignKey('CPU', on_delete=models.CASCADE)

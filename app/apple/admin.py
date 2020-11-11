@@ -12,8 +12,6 @@ class CapacityAdmin(admin.ModelAdmin):
 
 admin.site.register(Color)
 
-filter_horizontal = ('',)
-
 
 admin.site.register(CPU)
 admin.site.register(Out_Camera)

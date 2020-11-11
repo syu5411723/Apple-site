@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <div class="bg-#fafafa grey lighten-5">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="{% url 'device_list' %}">
+                        <div class="col-md-8">
+
+                            <select name="name" class="browser-default custom-select custom-select-lg mb-3">
+                                <option selected disabled="true">Select iPhone</option>
+                                {% for device in device_name %}
+                                    <option>{{ device.name }}</option>
+                                {% endfor %}
+
+                            </select>
+                        </div>
+
+                        <div class="col-md-8">
+                            <select name="name" class="browser-default custom-select custom-select-lg mb-3">
+                                <option selected disabled="true">Select iPhone</option>
+                                {% for device in device_name %}
+                                    <option>{{ device.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <br><br>
+
+                        <div class="text-right">
+                            <input type="submit" class="btn btn-dark" value="比較する">
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}
