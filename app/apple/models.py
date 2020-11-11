@@ -36,7 +36,7 @@ class Out_Camera(models.Model):
         return self.ability
 
 
-class Device(models.Model):
+class DeviceModel(models.Model):
     name = models.CharField(max_length=50)
     display_size = models.DecimalField(decimal_places=1, max_digits=2)
     device_size = models.DecimalField(decimal_places=1, max_digits=2)
@@ -48,6 +48,9 @@ class Device(models.Model):
     color = models.ManyToManyField('Color',)
     in_camera = models.CharField(max_length=50)
     out_camera = models.ManyToManyField('Out_Camera')
+
+    class Meta:
+        db_table = "device"
 
     def __str__(self):
         return self.name

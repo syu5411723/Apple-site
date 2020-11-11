@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView, ListView
-from .models import Device
+from .models import DeviceModel
 
 
 class Index(TemplateView):
@@ -8,25 +8,32 @@ class Index(TemplateView):
 
 
 class DeviceTable(TemplateView):
-    model = Device
-    template_name = 'device_choice.html'
+    model = DeviceModel
+    template_name = 'device_detail.html'
 
     def get_queryset(self):
-        query = Device.objects.all()
+        queryset = DeviceModel.objects.all()
         if 'query' in self.request.GET:
             qs = self.request.GET['query']
-            query = query.filter(name__exact=qs)
+            queryset = queryset.filter(name__exact=qs)
 
-        return query
+        return queryset
 
 
-class DeviceChoice(ListView):
-    model = Device
-    template_name = 'device_choice.html'
+def DeviceSearch(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        device_name = DeviceModel.objects.filter(name__exact=name)
+    return render(request, 'choice.html', device_name)
 
 
 class Test(ListView):
-    model = Device
+    model = DeviceModel
     template_name = 'test.html'
+
+
+
+
+
 
 

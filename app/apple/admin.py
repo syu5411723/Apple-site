@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Device, Color, Capacity, CPU, Out_Camera, Authentication
+from .models import DeviceModel, Color, Capacity, CPU, Out_Camera, Authentication
 
-admin.site.register(Device)
+admin.site.register(DeviceModel)
 
 
 @admin.register(Capacity)
