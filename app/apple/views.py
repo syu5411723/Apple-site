@@ -8,29 +8,33 @@ class Index(TemplateView):
     template_name = 'index.html'
 
 
-class DeviceList(ListView):
-    model = DeviceModel
-    template_name = 'device_list.html'
-
-    def DeviceSearch(request):
-        if request.method != 'POST':
-            return HttpResponseNotAllowed(['POST'])
-        name = request.POST.get('name')
-        device_name = DeviceModel.objects.filter(name__exact=name)
-        return render(request, 'device_list.html', {'device_name': device_name})
-
-
-class Test(TemplateView):
-    model = DeviceModel
-    template_name = 'test.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        device_list = DeviceModel.objects.all()
+def DeviceSearch(request):
+    print("[request method]", request.method)
+    if request.method == "POST":
+        name1 = request.POST.get('phone_name_1')
+        name2 = request.POST.get('phone_name_2')
+        device_model_a = DeviceModel.objects.filter(name__exact=name1)
+        device_model_b = DeviceModel.objects.filter(name__exact=name2)
         context = {
-            'device_list': device_list
+            'device_model_a': device_model_a,
+            'device_model_b': device_model_b
         }
-        return context
+    else:
+        context = {'device_models': DeviceModel.objects.all()}
+    return render(request, 'device_list.html', context)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

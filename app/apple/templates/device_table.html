@@ -9,7 +9,7 @@
     <div class="container">
         <div class="card">
             <div class="card-body">
-                {% for device in object_list %}
+                {% for item in device_models_a %}
                     <table class="table table-sm table-bordered">
 
                         <thead>
@@ -29,28 +29,28 @@
 
                         <tbody>
                         <tr>
-                            <th scope="row">{{ device.name }}</th>
-                            <td>{{ device.cpu }}</td>
-                            <td>{{ device.device_size }}</td>
-                            <td>{{ device.display_size }}</td>
+                            <th scope="row">{{ item.name }}</th>
+                            <td>{{ item.cpu }}</td>
+                            <td>{{ item.device_size }}</td>
+                            <td>{{ item.display_size }}</td>
 
                             <td>
-                                {% for capacity in device.capacity.all %}
+                                {% for capacity in item.capacity.all %}
                                     {{ capacity }}
                                 {% endfor %}
                             </td>
-                            <td>{{ device.home_button }}</td>
+                            <td>{{ item.home_button }}</td>
                             <td>
-                                {% for color in device.color.all %}
+                                {% for color in item.color.all %}
                                     {{ color }}
                                 {% endfor %}
                             </td>
                             <td>
-                                {% for out_camera in device.out_camera.all %}
+                                {% for out_camera in item.out_camera.all %}
                                     {{ out_camera }}
                                 {% endfor %}
                             </td>
-                            <td>{{ device.release_date }}</td>
+                            <td>{{ item.release_date }}</td>
                         </tr>
 
                         </tbody>

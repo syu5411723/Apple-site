@@ -7,23 +7,22 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST" action="{% url 'device_list' %}">
+                    <form method="POST">
+                        {% csrf_token %}
                         <div class="col-md-8">
-
-                            <select name="name" class="browser-default custom-select custom-select-lg mb-3">
+                            <select name="name1" class="browser-default custom-select custom-select-lg mb-3">
                                 <option selected disabled="true">Select iPhone</option>
-                                {% for device in device_name %}
-                                    <option>{{ device.name }}</option>
+                                {% for item in device_models %}
+                                    <option>{{ item.name }}</option>
                                 {% endfor %}
-
                             </select>
                         </div>
 
                         <div class="col-md-8">
-                            <select name="name" class="browser-default custom-select custom-select-lg mb-3">
+                            <select name="name2" class="browser-default custom-select custom-select-lg mb-3">
                                 <option selected disabled="true">Select iPhone</option>
-                                {% for device in device_name %}
-                                    <option>{{ device.name }}</option>
+                                {% for item in device_models %}
+                                    <option>{{ item.name }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -40,6 +39,65 @@
             </div>
         </div>
 
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+
+                    <table class="table table-sm table-bordered">
+                        {% for item in device_model_a %}
+
+                            <thead>
+                            <tr>
+                                <th scope="col">機種</th>
+                                <th scope="col">CPU</th>
+                                <th scope="col">本体サイズ</th>
+                                <th scope="col">画面</th>
+                                <th scope="col">GB</th>
+                                <th scope="col">ホームボタン</th>
+                                <th scope="col">色</th>
+                                <th scope="col">カメラ</th>
+                                <th scope="col">発売日</th>
+
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <th scope="row">{{ item.name }}</th>
+                                <td>{{ item.cpu }}</td>
+                                <td>{{ item.device_size }}</td>
+                                <td>{{ item.display_size }}</td>
+
+                                <td>
+                                    {% for capacity in item.capacity.all %}
+                                        {{ capacity }}
+                                    {% endfor %}
+                                </td>
+                                <td>{{ item.home_button }}</td>
+                                <td>
+                                    {% for color in item.color.all %}
+                                        {{ color }}
+                                    {% endfor %}
+                                </td>
+                                <td>
+                                    {% for out_camera in item.out_camera.all %}
+                                        {{ out_camera }}
+                                    {% endfor %}
+                                </td>
+                                <td>{{ item.release_date }}</td>
+                            </tr>
+
+                            </tbody>
+                        {% endfor %}
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
-{% endblock content %}
+
+
+{% endblock %}

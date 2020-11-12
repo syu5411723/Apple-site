@@ -11,8 +11,6 @@ class CapacityAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Color)
-
-
 admin.site.register(CPU)
 admin.site.register(Out_Camera)
 admin.site.register(Authentication)
