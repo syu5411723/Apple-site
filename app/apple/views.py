@@ -16,8 +16,7 @@ def DeviceSearch(request):
         device_model_a = DeviceModel.objects.filter(name__exact=name1)
         device_model_b = DeviceModel.objects.filter(name__exact=name2)
         context = {
-            'device_model_a': device_model_a,
-            'device_model_b': device_model_b
+            'device_models': (device_model_a, device_model_b)
         }
     else:
         context = {'device_models': DeviceModel.objects.all()}

@@ -43,52 +43,85 @@
             <div class="card">
                 <div class="card-body">
 
-                    <table class="table table-sm table-bordered">
-                        {% for item in device_model_a %}
+                    {% for item in device_models %}
+                        <table class="table table-sm table-bordered">
 
-                            <thead>
-                            <tr>
-                                <th scope="col">機種</th>
-                                <th scope="col">CPU</th>
-                                <th scope="col">本体サイズ</th>
-                                <th scope="col">画面</th>
-                                <th scope="col">GB</th>
-                                <th scope="col">ホームボタン</th>
-                                <th scope="col">色</th>
-                                <th scope="col">カメラ</th>
-                                <th scope="col">発売日</th>
+                        <thead>
+                        <tr>
+                            <th>
+                                <div class="text-center">機種</div>
+                            </th>
+                            <th>
+                                <div class="text-center">CPU</div>
+                            </th>
 
-                            </tr>
-                            </thead>
+                            <th>
+                                <div class="text-center">画面</div>
+                            </th>
+                            <th>
+                                <div class="text-center">GB</div>
+                            </th>
+                            <th>
+                                <div class="text-center">ホームボタン</div>
+                            </th>
+                            <th>
+                                <div class="text-center">色</div>
+                            </th>
+                            <th>
+                                <div class="text-center">カメラ</div>
+                            </th>
+                            <th>
+                                <div class="text-center">発売日</div>
+                            </th>
 
-                            <tbody>
-                            <tr>
-                                <th scope="row">{{ item.name }}</th>
-                                <td>{{ item.cpu }}</td>
-                                <td>{{ item.device_size }}</td>
-                                <td>{{ item.display_size }}</td>
+                        </tr>
+                        </thead>
 
-                                <td>
+                        <tbody>
+                        <tr>
+                            <th scope="row">
+                                <div class="text-center">{{ item.name }}</div>
+                            </th>
+                            <td>
+                                <div class="text-center">{{ item.cpu }}</div>
+                            </td>
+
+
+                            <td>
+                                <div class="text-center">{{ item.display_size }}</div>
+                            </td>
+
+                            <td>
+                                <div class="text-center">
                                     {% for capacity in item.capacity.all %}
                                         {{ capacity }}
                                     {% endfor %}
-                                </td>
-                                <td>{{ item.home_button }}</td>
-                                <td>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">{{ item.home_button }}</div>
+                            </td>
+                            <td>
+                                <div class="text-center">
                                     {% for color in item.color.all %}
                                         {{ color }}
                                     {% endfor %}
-                                </td>
-                                <td>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">
                                     {% for out_camera in item.out_camera.all %}
                                         {{ out_camera }}
                                     {% endfor %}
-                                </td>
-                                <td>{{ item.release_date }}</td>
-                            </tr>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">{{ item.release_date }}</div>
+                            </td>
+                        </tr>
 
-                            </tbody>
-                        {% endfor %}
+                        </tbody>
+                    {% endfor %}
                     </table>
 
                 </div>

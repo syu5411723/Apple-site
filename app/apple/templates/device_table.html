@@ -14,43 +14,79 @@
 
                         <thead>
                         <tr>
-                            <th scope="col">機種</th>
-                            <th scope="col">CPU</th>
-                            <th scope="col">本体サイズ</th>
-                            <th scope="col">画面</th>
-                            <th scope="col">GB</th>
-                            <th scope="col">ホームボタン</th>
-                            <th scope="col">色</th>
-                            <th scope="col">カメラ</th>
-                            <th scope="col">発売日</th>
+                            <th>
+                                <div class="text-center">機種</div>
+                            </th>
+                            <th>
+                                <div class="text-center">CPU</div>
+                            </th>
+                            <th>
+                                <div class="text-center">>本体サイズ</div>
+                            </th>
+                            <th>
+                                <div class="text-center">画面</div>
+                            </th>
+                            <th>
+                                <div class="text-center">>GB</div>
+                            </th>
+                            <th>
+                                <div class="text-center">>ホームボタン</div>
+                            </th>
+                            <th>
+                                <div class="text-center">>色</div>
+                            </th>
+                            <th>
+                                <div class="text-center">>カメラ</div>
+                            </th>
+                            <th>
+                                <div class="text-center">>発売日</div>
+                            </th>
 
                         </tr>
                         </thead>
 
                         <tbody>
                         <tr>
-                            <th scope="row">{{ item.name }}</th>
-                            <td>{{ item.cpu }}</td>
-                            <td>{{ item.device_size }}</td>
-                            <td>{{ item.display_size }}</td>
+                            <th scope="row">
+                                <div class="text-center">{{ item.name }}</div>
+                            </th>
+                            <td>>
+                                <div class="text-center">{{ item.cpu }}</div>
+                            </td>
+                            <td>>
+                                <div class="text-center">{{ item.device_size }}</div>
+                            </td>
+                            <td>>
+                                <div class="text-center">{{ item.display_size }}</div>
+                            </td>
 
                             <td>
-                                {% for capacity in item.capacity.all %}
-                                    {{ capacity }}
-                                {% endfor %}
-                            </td>
-                            <td>{{ item.home_button }}</td>
-                            <td>
-                                {% for color in item.color.all %}
-                                    {{ color }}
-                                {% endfor %}
+                                <div class="text-center">
+                                    {% for capacity in item.capacity.all %}
+                                        {{ capacity }}
+                                    {% endfor %}
+                                </div>
                             </td>
                             <td>
-                                {% for out_camera in item.out_camera.all %}
-                                    {{ out_camera }}
-                                {% endfor %}
+                                <div class="text-center">{{ item.home_button }}</div>
                             </td>
-                            <td>{{ item.release_date }}</td>
+                            <td>
+                                <div class="text-center">
+                                    {% for color in item.color.all %}
+                                        {{ color }}
+                                    {% endfor %}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">
+                                    {% for out_camera in item.out_camera.all %}
+                                        {{ out_camera }}
+                                    {% endfor %}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text-center">{{ item.release_date }}</div>
+                            </td>
                         </tr>
 
                         </tbody>
