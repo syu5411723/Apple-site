@@ -1,3 +1,4 @@
+
 version: '3.7'
 
 services:
@@ -14,7 +15,7 @@ services:
     build:
       context: ./proxy
     volumes:
-      - static_data:/vol/css
+      - static_data:/vol/static
     ports:
       - "8080:8080"
     depends_on:

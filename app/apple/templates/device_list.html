@@ -7,7 +7,7 @@
         <div class="container">
             <div class="card">
                 <div class="card-body">
-                    <form method="POST">
+                    <form method="POST" value="">
                         {% csrf_token %}
                         <div class="col-md-8">
                             <select name="name1" class="browser-default custom-select custom-select-lg mb-3">
@@ -38,95 +38,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="container">
-            <div class="card">
-                <div class="card-body">
-
-                    {% for item in device_models %}
-                        <table class="table table-sm table-bordered">
-
-                        <thead>
-                        <tr>
-                            <th>
-                                <div class="text-center">機種</div>
-                            </th>
-                            <th>
-                                <div class="text-center">CPU</div>
-                            </th>
-
-                            <th>
-                                <div class="text-center">画面</div>
-                            </th>
-                            <th>
-                                <div class="text-center">GB</div>
-                            </th>
-                            <th>
-                                <div class="text-center">ホームボタン</div>
-                            </th>
-                            <th>
-                                <div class="text-center">色</div>
-                            </th>
-                            <th>
-                                <div class="text-center">カメラ</div>
-                            </th>
-                            <th>
-                                <div class="text-center">発売日</div>
-                            </th>
-
-                        </tr>
-                        </thead>
-
-                        <tbody>
-                        <tr>
-                            <th scope="row">
-                                <div class="text-center">{{ item.name }}</div>
-                            </th>
-                            <td>
-                                <div class="text-center">{{ item.cpu }}</div>
-                            </td>
-
-
-                            <td>
-                                <div class="text-center">{{ item.display_size }}</div>
-                            </td>
-
-                            <td>
-                                <div class="text-center">
-                                    {% for capacity in item.capacity.all %}
-                                        {{ capacity }}
-                                    {% endfor %}
-                                </div>
-                            </td>
-                            <td>
-                                <div class="text-center">{{ item.home_button }}</div>
-                            </td>
-                            <td>
-                                <div class="text-center">
-                                    {% for color in item.color.all %}
-                                        {{ color }}
-                                    {% endfor %}
-                                </div>
-                            </td>
-                            <td>
-                                <div class="text-center">
-                                    {% for out_camera in item.out_camera.all %}
-                                        {{ out_camera }}
-                                    {% endfor %}
-                                </div>
-                            </td>
-                            <td>
-                                <div class="text-center">{{ item.release_date }}</div>
-                            </td>
-                        </tr>
-
-                        </tbody>
-                    {% endfor %}
-                    </table>
-
-                </div>
-            </div>
-        </div>
+        <br>
 
 
     </div>

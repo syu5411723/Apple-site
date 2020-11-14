@@ -1,63 +1,75 @@
-{% extends 'device_list.html' %}
+{% extends 'base.html' %}
 
 
 
 
-{% block table %}
-
+{% block content %}
+    <div class="container">
+        <div class="text-right">
+            <div class="card">
+                <div class="card-body">
+                    <a href="{% url 'device_list' %}">
+                        <button class="btn btn-dark">選択</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
 
     <div class="container">
         <div class="card">
             <div class="card-body">
-                {% for item in device_models_a %}
-                    <table class="table table-sm table-bordered">
 
-                        <thead>
-                        <tr>
-                            <th>
-                                <div class="text-center">機種</div>
-                            </th>
-                            <th>
-                                <div class="text-center">CPU</div>
-                            </th>
-                            <th>
-                                <div class="text-center">>本体サイズ</div>
-                            </th>
-                            <th>
-                                <div class="text-center">画面</div>
-                            </th>
-                            <th>
-                                <div class="text-center">>GB</div>
-                            </th>
-                            <th>
-                                <div class="text-center">>ホームボタン</div>
-                            </th>
-                            <th>
-                                <div class="text-center">>色</div>
-                            </th>
-                            <th>
-                                <div class="text-center">>カメラ</div>
-                            </th>
-                            <th>
-                                <div class="text-center">>発売日</div>
-                            </th>
 
-                        </tr>
-                        </thead>
+                <table class="table table-sm table-bordered">
 
+                    <thead>
+                    <tr>
+                        <th>
+                            <div class="text-center">機種</div>
+                        </th>
+                        <th>
+                            <div class="text-center">CPU</div>
+                        </th>
+
+                        <th>
+                            <div class="text-center">画面サイズ</div>
+                        </th>
+                        <th>
+                            <div class="text-center">GB</div>
+                        </th>
+                        <th>
+                            <div class="text-center">認証</div>
+                        </th>
+                        <th>
+                            <div class="text-center">色</div>
+                        </th>
+                        <th>
+                            <div class="text-center">カメラ</div>
+                        </th>
+                        <th>
+                            <div class="text-center">発売日</div>
+                        </th>
+
+                    </tr>
+                    </thead>
+                    {% for item in device_models %}
                         <tbody>
                         <tr>
                             <th scope="row">
                                 <div class="text-center">{{ item.name }}</div>
                             </th>
-                            <td>>
+                            <td>
                                 <div class="text-center">{{ item.cpu }}</div>
                             </td>
-                            <td>>
-                                <div class="text-center">{{ item.device_size }}</div>
+
+
+                            <td>
+                                <div class="text-center">{{ item.display_size }}インチ</div>
                             </td>
-                            <td>>
-                                <div class="text-center">{{ item.display_size }}</div>
+                            <td>
+                                <div class="text-center">{{ item.gram }}</div>
                             </td>
 
                             <td>
@@ -67,9 +79,7 @@
                                     {% endfor %}
                                 </div>
                             </td>
-                            <td>
-                                <div class="text-center">{{ item.home_button }}</div>
-                            </td>
+
                             <td>
                                 <div class="text-center">
                                     {% for color in item.color.all %}
@@ -90,12 +100,13 @@
                         </tr>
 
                         </tbody>
+                    {% endfor %}
+                </table>
 
-                    </table>
-                {% endfor %}
             </div>
         </div>
     </div>
+    <br>
 
 {% endblock %}
 
