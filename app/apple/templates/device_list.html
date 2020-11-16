@@ -12,8 +12,8 @@
                         <div class="col-md-8">
                             <select name="name1" class="browser-default custom-select custom-select-lg mb-3">
                                 <option selected disabled="true">Select iPhone</option>
-                                {% for item in device_models %}
-                                    <option>{{ item.name }}</option>
+                                {% for item in type_names %}
+                                    <option>{{ item }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -21,8 +21,8 @@
                         <div class="col-md-8">
                             <select name="name2" class="browser-default custom-select custom-select-lg mb-3">
                                 <option selected disabled="true">Select iPhone</option>
-                                {% for item in device_models %}
-                                    <option>{{ item.name }}</option>
+                                {% for item in type_names %}
+                                    <option>{{ item }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -40,9 +40,104 @@
         </div>
         <br>
 
+        {% if device_models %}
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+
+                    <table class="table table-sm table-bordered">
+
+                    <thead>
+                    <tr>
+                        <th>
+                            <div class="text-center">機種</div>
+                        </th>
+                        <th>
+                            <div class="text-center">CPU</div>
+                        </th>
+
+                        <th>
+                            <div class="text-center">画面サイズ</div>
+                        </th>
+                        <th>
+                            <div class="text-center">重量</div>
+                        </th>
+                        <th>
+                            <div class="text-center">GB</div>
+                        </th>
+                        <th>
+                            <div class="text-center">認証</div>
+                        </th>
+                        <th>
+                            <div class="text-center">色</div>
+                        </th>
+                        <th>
+                            <div class="text-center">カメラ</div>
+                        </th>
+                        <th>
+                            <div class="text-center">発売日</div>
+                        </th>
+
+                    </tr>
+                    </thead>
+                    {% for item in device_models %}
+                    <tbody>
+                    <tr>
+                        <th scope="row">
+                            <div class="text-center">{{ item.name }}</div>
+                        </th>
+                        <td>
+                            <div class="text-center">{{ item.cpu }}</div>
+                        </td>
+
+
+                        <td>
+                            <div class="text-center">{{ item.display_size }}インチ</div>
+                        </td>
+                        <td>
+                            <div class="text-center">{{ item.gram }}</div>
+                        </td>
+
+                        <td>
+                            <div class="text-center">
+                                {% for capacity in item.capacity.all %}
+                                    {{ capacity }}
+                                {% endfor %}
+                            </div>
+                        </td>
+                    <td>
+                            <div class="text-center">{{ item.authentication }}</div>
+                        </td>
+
+
+                        <td>
+                            <div class="text-center">
+                                {% for color in item.color.all %}
+                                    {{ color }}
+                              {% endfor %}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                {% for out_camera in item.out_camera.all %}
+                                    {{ out_camera }}
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-center">{{ item.release_date }}</div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                    {% endfor %}
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        {% endif %}
 
     </div>
-
-
 
 {% endblock %}

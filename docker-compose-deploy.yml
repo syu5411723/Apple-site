@@ -16,6 +16,7 @@ services:
       context: ./proxy
     volumes:
       - static_data:/vol/static
+    image: 455649620401.dkr.ecr.ap-northeast-1.amazonaws.com/apple-site
     ports:
       - "8080:8080"
     depends_on:
