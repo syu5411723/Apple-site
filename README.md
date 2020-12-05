@@ -2,4 +2,4 @@
 
 djangoで開発したiPhoneの比較サイトです。
 
-主に使用した技術 Django,AWS/ECS・ECR,Docker
+主に使用した技術 Django,AWS,Docker
